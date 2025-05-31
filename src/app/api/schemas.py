@@ -7,3 +7,8 @@ class AskAISchema(BaseModel):
 
 class AIResponseSchema(BaseModel):
     content: str
+
+
+class QuestionAnswerSchema(BaseModel):
+    question: str
+    answer: str
