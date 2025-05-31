@@ -1,6 +1,9 @@
 import csv
 from pathlib import Path
+
 import aiofiles  # type: ignore[import-untyped]
+
+from app.types import QuestionAnswer
 
 
 class CSVStorage:
@@ -14,15 +17,15 @@ class CSVStorage:
             csv_writer = csv.writer(file)
             csv_writer.writerow(['question', 'answer'])
 
-    async def save_entry(self, question: str, answer: str):
+    async def save_entry(self, qa: QuestionAnswer):
         async with aiofiles.open(self.file, 'a', newline='') as file:
             csv_writer = csv.writer(file)
-            await csv_writer.writerow([question, answer])
+            await csv_writer.writerow([qa['question'], qa['answer']])
 
-    async def read_entries(self) -> dict[str, str]:
-        result = {}
+    async def read_entries(self) -> list[QuestionAnswer]:
+        result = []
         with open(self.file) as file:
             reader = csv.DictReader(file)
             for row in reader:
-                result[row['question']] = row['answer']
+                result.append(QuestionAnswer(question=row['question'], answer=row['answer']))
         return result
