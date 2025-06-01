@@ -7,6 +7,12 @@ from app.types import QuestionAnswer
 
 
 class CSVStorage:
+    """File-based storage. Provides common operations on data:
+    * save_entry - save new question-answer to file
+    * read_entries - read all entries from file and load it in memory
+    * get_entries_by_user - load all entries in memory and return only associated with user
+    """
+
     def __init__(self, file: Path):
         self.file = file
         if self.file.exists() is False:
