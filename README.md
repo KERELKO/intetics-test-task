@@ -44,24 +44,18 @@ This is a full-stack web application that provides an AI-powered question-answer
 git clone https://github.com/KERELKO/intetics-test-task
 cd intetics-test-task
 ```
-
-2. Install dependencies using Poetry:
+2. Set up environment variables in /backend:
 ```bash
-poetry install
-```
-
-3. Set up environment variables:
-```bash
+cd backend
 cp .env.example .env
 # Edit .env file with your OpenAI API key and other configurations
 ```
 
 ## Running the Application
 
-1. Start the backend server with Docker:
+1. Start the backend server with Docker compose in root folder:
 ```bash
-docker build . -t ai-app
-docker run -p 8000:8000 ai-app
+docker compose up --build
 ```
 
 The application will be available at:
@@ -162,3 +156,7 @@ intetics-ai-enabled-app/
 4. **Features**
    - Basic Q&A functionality implemented
    - Could add user authentication, rate limiting, and response streaming
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
