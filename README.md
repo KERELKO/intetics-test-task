@@ -41,8 +41,8 @@ This is a full-stack web application that provides an AI-powered question-answer
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd intetics-ai-enabled-app
+git clone https://github.com/KERELKO/intetics-test-task
+cd intetics-test-task
 ```
 
 2. Install dependencies using Poetry:
@@ -58,9 +58,10 @@ cp .env.example .env
 
 ## Running the Application
 
-1. Start the backend server:
+1. Start the backend server with Docker:
 ```bash
-poetry run uvicorn src.app.main:fastapi_app_factory --reload
+docker build . -t ai-app
+docker run -p 8000:8000 ai-app
 ```
 
 The application will be available at:
@@ -161,15 +162,3 @@ intetics-ai-enabled-app/
 4. **Features**
    - Basic Q&A functionality implemented
    - Could add user authentication, rate limiting, and response streaming
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
