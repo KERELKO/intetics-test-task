@@ -21,6 +21,9 @@ This is a full-stack web application that provides an AI-powered question-answer
 - Pydantic for data validation
 - Uvicorn as ASGI server
 
+### Frontend
+- Vue.js
+- Vite
 ### Dependencies
 - fastapi >= 0.115.12
 - langchain >= 0.3.25
