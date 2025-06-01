@@ -1,0 +1,6 @@
+.env.template
+task.pdf
+tests
+.mypy_cache
+.pytest_cache
+test.py
